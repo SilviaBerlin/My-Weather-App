@@ -1,0 +1,98 @@
+h1 {
+  font-family: "Lilita One", cursive;
+  text-align: left;
+  font-size: 55px;
+  font-weight: bold;
+}
+h2 {
+  font-family: "Lilita One", cursive;
+  font-size: 40px;
+  text-align: left;
+  color: #38e54d;
+}
+h4 {
+  font-family: "Lilita One", cursive;
+  font-size: 25px;
+  padding: 7px;
+}
+.container {
+  max-width: 950px;
+}
+.card {
+  border-color: #97deff;
+  color: #38e54d;
+  background-color: #1a5f7a;
+}
+
+.btn {
+  display: inline;
+  margin-top: 15px;
+  background-color: #38e54d;
+  font-family: "Lilita One", cursive;
+}
+
+.time {
+  margin-left: -120px;
+  font-size: 20px;
+  font-family: "Lilita One", cursive;
+}
+.temp-change {
+  font-size: 20px;
+  font-family: "Lilita One", cursive;
+  font-variant: #38e54d;
+}
+
+.daily {
+  font-family: "Lilita One", cursive;
+}
+
+.today {
+  margin-bottom: 0;
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.temperature-day {
+  font-size: 55px;
+  margin-bottom: 3px;
+}
+
+.weather {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.humid,
+.windy {
+  font-family: "Lilita One", cursive;
+  font-size: 20px;
+  padding: 5px;
+  margin-top: 7px;
+}
+.days {
+  border: solid 2px;
+  border-radius: 15px;
+  border-color: #97deff;
+  padding-bottom: 10px;
+  font-family: "Lilita One", cursive;
+}
+
+.fa-cloud-sun {
+  display: block;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.temp-max,
+.temp-min {
+  padding: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.temp-max {
+  color: #38e54d;
+  font-weight: bold;
+}
+.temp-min {
+  color: #38e54d;
+}
