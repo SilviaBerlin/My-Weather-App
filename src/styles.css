@@ -1,98 +1,130 @@
 h1 {
-  font-family: "Lilita One", cursive;
-  text-align: left;
-  font-size: 55px;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  font-size: 70px;
   font-weight: bold;
+  color: #1a5f7a;
+  text-shadow: 3px 3px 5px #f99417;
 }
+
 h2 {
-  font-family: "Lilita One", cursive;
-  font-size: 40px;
+  font-family: "Quicksand", sans-serif;
+  color: #f99417;
   text-align: left;
-  color: #38e54d;
+  font-size: 52px;
+  font-weight: bold;
+  text-shadow: 3px 3px 5px rgb(0, 0, 0, 0.2);
 }
+
 h4 {
-  font-family: "Lilita One", cursive;
-  font-size: 25px;
+  font-family: "Quicksand", sans-serif;
   padding: 7px;
+  font-weight: bold;
+  text-shadow: 3px 3px 5px rgb(0, 0, 0, 0.2);
+}
+a {
+  text-decoration: none;
 }
 .container {
-  max-width: 950px;
+  max-width: 850px;
 }
 .card {
-  border-color: #97deff;
-  color: #38e54d;
+  border-color: #f99417;
+  color: #f99417;
   background-color: #1a5f7a;
 }
 
 .btn {
   display: inline;
   margin-top: 15px;
-  background-color: #38e54d;
-  font-family: "Lilita One", cursive;
+  color: #1a5f7a;
+  background-color: #f99417;
+  border-color: #f99417;
+  font-weight: bold;
 }
 
 .time {
-  margin-left: -120px;
-  font-size: 20px;
-  font-family: "Lilita One", cursive;
+  margin-left: -40px;
+  font-size: 35px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  text-shadow: 3px 3px 5px rgb(0, 0, 0, 0.2);
 }
 .temp-change {
   font-size: 20px;
-  font-family: "Lilita One", cursive;
-  font-variant: #38e54d;
+  margin-left: 5px;
 }
 
 .daily {
-  font-family: "Lilita One", cursive;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
 }
 
 .today {
   margin-bottom: 0;
   margin-left: 5px;
-  font-size: 20px;
 }
 
 .temperature-day {
   font-size: 55px;
   margin-bottom: 3px;
+  font-weight: bold;
+}
+
+.actual-degrees {
+  padding: 5px;
 }
 
 .weather {
   margin-left: 5px;
-  font-size: 20px;
 }
 
 .humid,
+.rainy,
 .windy {
-  font-family: "Lilita One", cursive;
-  font-size: 20px;
+  font-family: "Quicksand", sans-serif;
   padding: 5px;
   margin-top: 7px;
+  font-weight: bold;
 }
 .days {
-  border: solid 2px;
-  border-radius: 15px;
-  border-color: #97deff;
+  border: solid 1px;
+  border-radius: 10px;
+  border-color: #f99417;
   padding-bottom: 10px;
-  font-family: "Lilita One", cursive;
+  box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.2);
+  font-weight: bold;
 }
 
 .fa-cloud-sun {
   display: block;
   font-size: 25px;
   padding: 10px;
+  font-weight: bold;
 }
 
 .temp-max,
 .temp-min {
-  padding: 8px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 6px;
+  font-family: "Quicksand", sans-serif;
 }
 
 .temp-max {
-  color: #38e54d;
+  color: #f99417;
   font-weight: bold;
 }
 .temp-min {
-  color: #38e54d;
+  color: #f99417;
+}
+
+.git-link {
+  margin-left: 10px;
+}
+.temp-change .active {
+  color: #f99417;
+  cursor: default;
+}
+
+.weather-forecast {
+  text-align: center;
 }

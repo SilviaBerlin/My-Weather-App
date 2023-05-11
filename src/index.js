@@ -25,27 +25,45 @@ function formatTime(time) {
   return `${hours}:${minutes}`;
 }
 
-function searchTheCity(event) {
-  event.preventDefault();
+function search(city) {
+  let apiKey = "oc8f863570b0e6e8c7285b4td7fa34f4";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-  let apiKey = "aabfdb0545b67c16952e49b1d1f98aea";
-  let city = document.querySelector("#new-city").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(retrieveTemp);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
-function retrieveTemp(response) {
-  document.querySelector("#current-city").innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
-  let currentTemp = document.querySelector(".actual-degrees");
-  currentTemp.innerHTML = `${temperature}°C`;
-  document.querySelector(
-    "#humid"
-  ).innerHTML = `${response.data.main.humidity}%`;
-  document.querySelector("#windy").innerHTML = `${Math.round(
-    response.data.wind.speed
-  )} Km/h`;
+function getForecast(coordinates) {
+  let latitude = coordinates.latitude;
+  let longitude = coordinates.longitude;
+
+  let apiKey = "oc8f863570b0e6e8c7285b4td7fa34f4";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#actual-degrees");
+  let cityElement = document.querySelector("#selected-city");
+  let descriptionElement = document.querySelector("#weather-description");
+  let humidityElement = document.querySelector("#humid");
+  let windElement = document.querySelector("#windy");
+  let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.temperature.current;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.city;
+  descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windElement.innerHTML = `${Math.round(response.data.wind.speed)} Km/h`;
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 
 function getLocalTemperature() {
@@ -56,21 +74,34 @@ function showLocalTemperature(response) {
   let latitude = response.coords.latitude;
   let longitude = response.coords.longitude;
 
-  let apiKey = "aabfdb0545b67c16952e49b1d1f98aea";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "oc8f863570b0e6e8c7285b4td7fa34f4";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}
+`;
 
-  axios.get(apiUrl).then(retrieveTemp);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
-function changeToCelsius(event) {
+function handleSearch(event) {
   event.preventDefault();
-  let temperature = document.querySelector(".actual-degrees");
-  temperature.innerHTML = "5°C";
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
 }
-function changeToFaren(event) {
-  event.preventDefault();
-  let temperature = document.querySelector(".actual-degrees");
-  temperature.innerHTML = "41°F";
+
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  return days[day];
 }
 
 let date = document.querySelector("#current-day");
@@ -80,13 +111,12 @@ let currentTime = new Date();
 date.innerHTML = formatDay(currentTime);
 time.innerHTML = formatTime(currentTime);
 
-let city = document.querySelector("#search-city");
-city.addEventListener("submit", searchTheCity);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSearch);
 
-let celsiusDegrees = document.querySelector("#celsius");
-let farenDegrees = document.querySelector("#fahrenheit");
+let celsiusTemperature = null;
+
 let localTemperature = document.querySelector("#local-temperature");
-
-celsiusDegrees.addEventListener("click", changeToCelsius);
-farenDegrees.addEventListener("click", changeToFaren);
 localTemperature.addEventListener("click", getLocalTemperature);
+
+search("Berlin");
