@@ -103,6 +103,31 @@ function formatForecastDay(timestamp) {
 
   return days[day];
 }
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
+  let forecastHTML = `<div class="row mt-4">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `              <div class="col-2 days text-center">
+    <div>${formatForecastDay(forecastDay.time)}</div>
+    <img src=${forecastDay.condition.icon_url} alt="" id="forecast-icon" />
+    <span class="temp-max">${Math.round(
+      forecastDay.temperature.maximum
+    )}°</span><span class="temp-min">${Math.round(
+          forecastDay.temperature.minimum
+        )}°</span>
+    </div>       
+    `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 let date = document.querySelector("#current-day");
 let time = document.querySelector("#current-time");
