@@ -3,13 +3,13 @@ h1 {
   text-align: center;
   font-size: 70px;
   font-weight: bold;
-  color: #1a5f7a;
-  text-shadow: 3px 3px 5px #f99417;
+  color: #22577e;
+  text-shadow: 3px 3px 5px #070a52;
 }
 
 h2 {
   font-family: "Quicksand", sans-serif;
-  color: #f99417;
+  color: #f0ebce;
   text-align: left;
   font-size: 52px;
   font-weight: bold;
@@ -29,17 +29,17 @@ a {
   max-width: 850px;
 }
 .card {
-  border-color: #f99417;
-  color: #f99417;
-  background-color: #1a5f7a;
+  border-color: #f0ebce;
+  color: #f0ebce;
+  background-color: #22577e;
 }
 
 .btn {
   display: inline;
   margin-top: 15px;
-  color: #1a5f7a;
-  background-color: #f99417;
-  border-color: #f99417;
+  color: #22577e;
+  background-color: #f0ebce;
+  border-color: #f0ebce;
   font-weight: bold;
 }
 
@@ -90,7 +90,7 @@ a {
 .days {
   border: solid 1px;
   border-radius: 10px;
-  border-color: #f99417;
+  border-color: #f0ebce;
   padding-bottom: 10px;
   box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.2);
   font-weight: bold;
@@ -110,18 +110,18 @@ a {
 }
 
 .temp-max {
-  color: #f99417;
+  color: #f0ebce;
   font-weight: bold;
 }
 .temp-min {
-  color: #f99417;
+  color: #f0ebce;
 }
 
 .git-link {
   margin-left: 10px;
 }
 .temp-change .active {
-  color: #f99417;
+  color: #f0ebce;
   cursor: default;
 }
 

@@ -52,7 +52,32 @@ function displayTemperature(response) {
 
   celsiusTemperature = response.data.temperature.current;
 
+  // I used switch statement to show different colors based on temperature value variations
+
+  switch (true) {
+    case celsiusTemperature < 0:
+      TempColor = "#6BBCD1";
+      break;
+    case celsiusTemperature >= 0 && celsiusTemperature < 10:
+      TempColor = "#FFF2CE";
+      break;
+    case celsiusTemperature >= 10 && celsiusTemperature < 20:
+      TempColor = "#FEB938";
+      break;
+    case celsiusTemperature >= 20 && celsiusTemperature < 30:
+      TempColor = "#FD9415";
+      break;
+    case celsiusTemperature >= 30:
+      TempColor = "#F15A59";
+      break;
+    default:
+      TempColor = "#000000";
+      break;
+  }
+
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  document.getElementById("actual-degrees").style.color = TempColor;
+  document.getElementById("celsius").style.color = TempColor;
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
